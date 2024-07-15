@@ -71,6 +71,11 @@
             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
               <i class="fas fa-arrow-up text-emerald-500 mr-4"></i>
               {{$keluhan->status ?? ''}}
+              <form action="/delete/{{$keluhan->id}}" class="inline" method="post">
+                @csrf
+                <button class="ml-3 bg-red-400 text-white font-bold rounded p-2 hover:bg-red-200">Delete</button>
+              </form>
+             
             </td>
           </tr>
           @endforeach

@@ -29,4 +29,10 @@ class KeluhanPelangganController extends Controller
         $keluhanPelanggan = KeluhanPelanggan::all();
         return view('renders.halaman-keluhan.index', compact('keluhanPelanggan'));
     }
+
+    public function delete(KeluhanPelanggan $keluhan_pelanggan)
+    {
+        $keluhan_pelanggan->delete();
+        return back();
+    }
 }

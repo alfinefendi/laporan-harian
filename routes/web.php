@@ -10,3 +10,4 @@ Route::get('/', function () {
 Route::get('/input', [KeluhanPelangganController::class,'index']);
 Route::post('/input', [KeluhanPelangganController::class,'store']);
 Route::get('/tabel', [KeluhanPelangganController::class,'tabel']);
+Route::post('/delete/{keluhan_pelanggan:id}', [KeluhanPelangganController::class,'delete']);

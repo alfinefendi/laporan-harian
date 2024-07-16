@@ -11,6 +11,7 @@ class KeluhanPelangganController extends Controller
         
         return view('renders.halaman-keluhan.input');  
     }
+
     public function store(Request $request)
     {
         $dataTervalidasi = $request->validate([    
@@ -22,6 +23,20 @@ class KeluhanPelangganController extends Controller
         ]);
         KeluhanPelanggan::create($dataTervalidasi);
         return response()->json(['message' => 'ok']);
+    }
+
+    public function edit(KeluhanPelanggan $keluhan)
+    {
+        return view('renders.halaman-keluhan.edit', compact('keluhan'));
+    }
+    public function update(Request $request, KeluhanPelanggan $keluhan)
+    {
+        $dataTervalidasi = $request->validate([    
+            'penanganan' => 'required'
+        ]);
+        $keluhan->penanganan = $dataTervalidasi['penanganan'];
+        $keluhan->save();
+        return redirect('tabel');
     }
 
     public function tabel()

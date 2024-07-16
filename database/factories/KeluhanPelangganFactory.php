@@ -21,7 +21,9 @@ class KeluhanPelangganFactory extends Factory
             'nama_pelanggan' => $this->faker->name,
             'nomor_hp' => $this->faker->numerify('########'),
             'keterangan' => $this->faker->sentence(4),
-            'status' => mt_rand(0,1)
+            'penanganan' => $this->faker->sentence(4),
+            'status' => mt_rand(0,1),
+            'observasi' => mt_rand(0,1)
         ];
     }
 }

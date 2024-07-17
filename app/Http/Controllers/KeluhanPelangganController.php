@@ -29,6 +29,7 @@ class KeluhanPelangganController extends Controller
     {
         return view('renders.halaman-keluhan.edit', compact('keluhan'));
     }
+
     public function update(Request $request, KeluhanPelanggan $keluhan)
     {
         $dataTervalidasi = $request->validate([    
@@ -39,9 +40,44 @@ class KeluhanPelangganController extends Controller
         return redirect('tabel');
     }
 
-    public function tabel()
+    public function editKeterangan(KeluhanPelanggan $keluhan)
     {
-        $keluhanPelanggan = KeluhanPelanggan::all();
+        return view('renders.halaman-keluhan.edit-keterangan', compact('keluhan'));
+    }
+
+    public function updateKeterangan(Request $request, KeluhanPelanggan $keluhan)
+    {
+        $dataTervalidasi = $request->validate([    
+            'keterangan' => 'required'
+        ]);
+        $keluhan->keterangan = $dataTervalidasi['keterangan'];
+        $keluhan->save();
+        return redirect('tabel');
+    }
+
+    public function editNomorHP(KeluhanPelanggan $keluhan)
+    {
+        return view('renders.halaman-keluhan.edit-nomor-hp', compact('keluhan'));
+    }
+
+
+    
+    public function updateNomorHP(Request $request, KeluhanPelanggan $keluhan)
+    {
+        $dataTervalidasi = $request->validate([    
+            'nomor_hp' => 'required'
+        ]);
+        $keluhan->nomor_hp = $dataTervalidasi['nomor_hp'];
+        $keluhan->save();
+        return redirect('tabel');
+    }
+
+   
+
+    public function tabel(Request $request)
+    {
+        $date = $request->input('date');
+        $keluhanPelanggan = KeluhanPelanggan::date($date)->get();
         return view('renders.halaman-keluhan.index', compact('keluhanPelanggan'));
     }
 

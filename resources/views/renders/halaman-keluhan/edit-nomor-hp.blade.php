@@ -26,10 +26,10 @@
                 <input type="text" id="nama_pelanggan" value="{{$keluhan->nama_pelanggan}}" name="nama_pelanggan" placeholder="budi .." required
                     class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500">
             </div>
-            <div class="mb-6">
-                <label for="penanganan" class="block text-gray-700 text-sm font-bold mb-2">Penanganan (wajib setelah dipastikan)</label>
-                <textarea id="penanganan"  name="penanganan" rows="4" placeholder="keluhan .."
-                    class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500">{{$keluhan->penanganan}}</textarea>
+            <div class="mb-4">
+                <label for="nomor_hp" class="block text-gray-700 text-sm font-bold mb-2">Nomor HP</label>
+                <input type="number" id="nomor_hp"  value="{{$keluhan->nomor_hp}}" name="nomor_hp" placeholder="08124xx" required
+                    class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500">
             </div>
             <button type="submit" id="submit-button"
                 class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue">
